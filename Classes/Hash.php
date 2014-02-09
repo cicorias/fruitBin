@@ -1,8 +1,10 @@
 <?php
-
+/*
+HASH CLASS - used fr creating salts and hashing input strings for use in the Database
+ */
 class Hash {
 
-	public static function make( $string, $salt = '') {
+	public static function make($string, $salt = '') {
 		return hash('sha256', $string . $salt);
 	}
 
