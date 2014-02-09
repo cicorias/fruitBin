@@ -13,7 +13,7 @@ class DB {
 			$_results,
 			$_count = 0;
 
-	public function __construct() {
+	private function __construct() {
 		try {
 			//pulls from core init file to establish connection - make sure you have proper mysql credentials entered!
 			$this->_pdo = new PDO('mysql:host='.Config::get('mysql/host').';dbname='.Config::get('mysql/db'),Config::get('mysql/username'),Config::get('mysql/password'));
