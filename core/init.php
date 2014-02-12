@@ -4,10 +4,10 @@ session_start();
 
 $GLOBALS['config'] = array(
 	'mysql' => array(
-		'host' => '127.0.0.1',
-		'username' => 'username',
-		'password' => 'password',
-		'db' => 'database_name'),
+		'host' => 'localhost',
+		'username' => '',
+		'password' => '',
+		'db' => ''),
 	/*'session' => array(
 		'session_name' => 'user',
 		'token_name' => 'token')*/);

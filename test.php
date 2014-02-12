@@ -39,34 +39,56 @@ SYNTAX: $fields = array(
 				'column_name_in DB' => 'value to insert',	
 				'column_name_in DB' => 'value to insert');
 */	
+echo "</br>INSERTING THE ABOVE INTO THE DB........</br> ";
 
-$fields = array(
-			'test' => $hashedText, 
-			'salt' => $salt
+$insert = array( 
+			'salt' => $salt,
+			'input_string' => $hashedText
 	);
 
 //check insert function - if fail then give error message - add TABLE string and verify FIELDS array first
-if ($testDB->insert('testTable', $fields)) { throw new Exception('There was a problem :('); }
+if (!$testDB->insert('test', $insert)) { throw new Exception('There was a problem :('); }
 
-//now query to get the hashed value back form the DB - SELECT* to get everything back - pass this in using STRING 
-//directrly through query function if errors, may need to pass an empty array to satisfy args but 
-//it is set as defined in the function args
-$sql = "SELECT * FROM testTable";
+//var_dump($testDB->results());
 
-$query = $testDB->query($sql);
 
-echo "</br>This is a testprint from the query:</br>";
+/*now query to get the hashed value back form the DB - SELECT* to get everything back - pass this in using STRING 
+directrly through query function if errors, may need to pass an empty array to satisfy args but 
+it is set as defined in the function args*/
 
-var_dump($query);
+ $sql = "SELECT * FROM test";
 
-echo "</br>";
+ $query = $testDB->query($sql);
 
-$result = $testDB->results();
+ echo "PRINTED RESULTS FROM THE DB QUERY: </br>";
 
-echo "</br>This is what has been returned from the DB Query: </br>";
+ $results = ($testDB->results());
 
-print_r($result);
+ foreach ($results as $result) {
+ 		
+ 		foreach ($result as $key => $value) { print_r("</br>[".$key."] = ".$value.";"); }
+ }	
 
-//This is does not give us the actual plain text input only the hashed output
+echo "</br> Notice the output is the hashed text and NOT the plain text.... </br>";
 
+
+echo "</br> It is literally impossible to get the inupt plain text from the hashed text from the database</br>
+If you wanted you coul dverify the data by checking the hashvalue of a given string to the stored hashed text</br></br>";
+/* UNFINISHED NESTED LOOP FOR CHECKING THE HASH - NOT NEEDED BRING UP IN MEETING FOCUS ON BUIDING SCAN FOR NOW
+// foreach ($results as $result) {
+ 		
+//  	foreach ($result as $key => $value) { 
+
+//  		if ($key = 'input_string') {
+ 		
+//  			if (Hash::make($plainText,$result['salt']) == $result['input_string']) {
+ 	
+//  				print_r("</br>[".$key."] = ".$plainText.";");				
+//  			}
+//  		}
+			
+// 		print_r("</br>[".$key."] = ".$value.";");
+ 		
+//  	}
+//  } */
 ?>

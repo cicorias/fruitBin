@@ -36,20 +36,22 @@ class DB {
 		
 		if ($this->_query = $this->_pdo->prepare($sql)) {
 			$i = 1;
-			
+
 			if (count($params)) {
-			   	
+				 
 			   	foreach($params as $param) {
-			   		$this->_query->bindValue($i, $param);
+			   		
+			 		$this->_query->bindValue($i, $param);
+
 			 		$i++;
 			 	}
 			}
 
 			if ($this->_query->execute()) {
-				
+
 				$this->_results = $this->_query->fetchAll(PDO::FETCH_OBJ);
+				//var_dump($this->_query);
 				$this->_count = $this->_query->rowCount(); 
-			
 			} else {$this->_error = true;}
 		}
 
@@ -102,7 +104,7 @@ class DB {
 		}
 
 		$sql = "INSERT INTO {$table} (`".implode('`, `', $keys)."`) VALUES ({$values}) ";
-			
+
 		if (!$this->query($sql, $fields)->error()) {return true;}
 	
 		return false;
