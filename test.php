@@ -7,6 +7,8 @@ TEST PAGE for LEARNING AND CODING
 // added to ensure all required configs and OOP Classes get loaded for use
 require_once (__DIR__.'/core/init.php');
 
+echo "<pre>";
+
 // COMMENTED OUT FOR NOW DUE TO NO SQL SCHEME IN USE WILL DECIDE AT LATER POINT HOW TO HANDLE USER DATA,
 // FOR TESTING SIMPLY UNCOMMENT the following Line Numbers: (13 - 79)
 
@@ -113,25 +115,15 @@ echo "</br>//////////////////////* Working with File Uploads *//////////////////
 
 if (Input::exists('files')) {
 
-	echo "</br> output of the File's info from PHP</br>";
+	echo "</br>output of the File's info from PHP</br>";
 
-	//get name of the uploaded file stored on server (upload_tmp_dir)
-	print_r($_FILES['test']['tmp_name']);
+	print_r(Input::get('test'));
 
-	//get name of the uplaoded file as it was on user computer
-	print_r($_FILES['test']['name']);
-
-	//get filesize
-	print_r($_FILES['test']['size']);
-
-	//get filetype
-	print_r($_FILES['test']['type']);
-
-	echo"</br>###### VAR_DUMP OF $_FILES ###### </br>";
+	echo"</br>###### VAR_DUMP OF _FILES ###### </br>";
 
 	var_dump($_FILES);
 
-} else 
+} else echo "</br>There are no files uploaded yet!</br>"
 
 
 
