@@ -95,4 +95,18 @@ require_once (__DIR__.'/core/init.php');
 //  	}
 //  } */
 
+echo "</br>//////////////////////* Working with File Uploads *//////////////////////</br>";
+
+?>
+<!-- start html - list a form for testing file uplaods -->
+<form action="" method="post" 
+    enctype="multipart/form-data"> 
+  <div><label id="upload">Select file to upload: 
+    <input type="file" id="upload" name="upload"/></label></div> 
+  <div> 
+    <input type="hidden" name="action" value="upload"/> 
+    <input type="submit" value="Submit"/> 
+  </div> 
+</form>
+
 ?>
