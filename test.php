@@ -113,7 +113,7 @@ echo "</br>//////////////////////* Working with File Uploads *//////////////////
 <!-- end html -->
 <?php
 
-if (Input::exists('files')) {
+if (Input::exists('files') && Input::get('test','type') === 'text/php') {
 
 	echo "</br>output of the File info from PHP</br>";
 
@@ -125,11 +125,8 @@ if (Input::exists('files')) {
 
 	echo "</br> Check the Filestype - make sure it is .php</br>";
 
-	if (Input::get('test','type')) {
-		
-	}
 
-} else echo "</br>There are no files uploaded yet!</br>";
+} else echo "</br>There are no .php files uploaded yet!</br>";
 
 
 
