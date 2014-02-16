@@ -102,7 +102,7 @@ echo "</br>//////////////////////* Working with File Uploads *//////////////////
 <form action="" method="post" 
     enctype="multipart/form-data"> 
   <div><label id="upload">Select file to upload: 
-    <input type="file" id="upload" name="upload"/></label></div> 
+    <input type="file" id="upload" name="test"/></label></div> 
   <div> 
     <input type="hidden" name="action" value="upload"/> 
     <input type="submit" value="Submit"/> 
@@ -111,17 +111,29 @@ echo "</br>//////////////////////* Working with File Uploads *//////////////////
 
 <?php
 
-//get name of the uploaded file stored on server (upload_tmp_dir)
-print_r($_FILES['upload']['tmp_name']);
+if (Input::exists('files')) {
 
-//get name of the uplaoded file as it was on user computer
-print_r($_FILES['upload']['name']);
+	echo "</br> output of the File's info from PHP</br>";
 
-//get filesize
-print_r($_FILES['upload']['size']);
+	//get name of the uploaded file stored on server (upload_tmp_dir)
+	print_r($_FILES['test']['tmp_name']);
 
-//get filetype
-print_r($_FILES['upload']['type']);
+	//get name of the uplaoded file as it was on user computer
+	print_r($_FILES['test']['name']);
+
+	//get filesize
+	print_r($_FILES['test']['size']);
+
+	//get filetype
+	print_r($_FILES['test']['type']);
+
+	echo"</br>###### VAR_DUMP OF $_FILES ###### </br>";
+
+	var_dump($_FILES);
+
+} else 
+
+
 
 
 
