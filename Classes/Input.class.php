@@ -2,6 +2,7 @@
 /* Input allows for saving and access of any $_POST or $_GET data*/
 
 class Input {
+
 	public static function exists($type = 'post') {
 		switch ($type) {
 			case 'post':
