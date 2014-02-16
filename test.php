@@ -7,73 +7,76 @@ TEST PAGE for LEARNING AND CODING
 // added to ensure all required configs and OOP Classes get loaded for use
 require_once (__DIR__.'/core/init.php');
 
-echo "//////////////////////* Salts & Hashing *//////////////////////</br>";
+// COMMENTED OUT FOR NOW DUE TO NO SQL SCHEME IN USE WILL DECIDE AT LATER POINT HOW TO HANDLE USER DATA,
+// FOR TESTING SIMPLY UNCOMMENT the following Line Numbers: (13 - 79)
 
-//test input string set before running test
-$plainText = "test";
+// echo "//////////////////////* Salts & Hashing *//////////////////////</br>";
 
-$salt = Hash::salt(32); 
+// //test input string set before running test
+// $plainText = "test";
 
-$hashedText = Hash::make($plainText, $salt);
+// $salt = Hash::salt(32); 
 
-//makes blank text output pretty in HTML :)
-echo "<pre>";
+// $hashedText = Hash::make($plainText, $salt);
 
-echo "Below is the mcrypt Salt (may include spaces) :</br>[ ".$salt." ]";
+// //makes blank text output pretty in HTML :)
+// echo "<pre>";
 
-echo '</br></br>This is the input test String: "'.$plainText.'"</br>';
+// echo "Below is the mcrypt Salt (may include spaces) :</br>[ ".$salt." ]";
 
-echo "</br>Below is the Hashed result: </br>[ ".$hashedText." ]</br>";
+// echo '</br></br>This is the input test String: "'.$plainText.'"</br>';
 
-echo "</br>//////////////////////* Working with DB *//////////////////////</br>";
+// echo "</br>Below is the Hashed result: </br>[ ".$hashedText." ]</br>";
 
-//utilize getInstance instead of Contsructor (which is set as Private) becasue this will allow us to
-// reference the current instance of the PDO object, and in future can allow for multiple PDO's to be in use
-$testDB = DB::getInstance();
+// echo "</br>//////////////////////* Working with DB *//////////////////////</br>";
 
-/*set fields array which will be used to insert into the DB
-you must pass the hashed value for whatever you want to store in addition to the salt 
-without the salt there is no way of ever recovering the hashed input ever again
+// //utilize getInstance instead of Contsructor (which is set as Private) becasue this will allow us to
+// // reference the current instance of the PDO object, and in future can allow for multiple PDO's to be in use
+// $testDB = DB::getInstance();
 
-SYNTAX: $fields = array(
-				'column_name_in DB' => 'value to insert',	
-				'column_name_in DB' => 'value to insert');
-*/	
-echo "</br>INSERTING THE ABOVE INTO THE DB........</br> ";
+// set fields array which will be used to insert into the DB
+// you must pass the hashed value for whatever you want to store in addition to the salt 
+// without the salt there is no way of ever recovering the hashed input ever again
 
-$insert = array( 
-			'salt' => $salt,
-			'input_string' => $hashedText
-	);
+// SYNTAX: $fields = array(
+// 				'column_name_in DB' => 'value to insert',	
+// 				'column_name_in DB' => 'value to insert');
+	
+// echo "</br>INSERTING THE ABOVE INTO THE DB........</br> ";
 
-//check insert function - if fail then give error message - add TABLE string and verify FIELDS array first
-if (!$testDB->insert('test', $insert)) { throw new Exception('There was a problem :('); }
+// $insert = array( 
+// 			'salt' => $salt,
+// 			'input_string' => $hashedText
+// 	);
 
-//var_dump($testDB->results());
+// //check insert function - if fail then give error message - add TABLE string and verify FIELDS array first
+// if (!$testDB->insert('test', $insert)) { throw new Exception('There was a problem :('); }
+
+// //var_dump($testDB->results());
 
 
-/*now query to get the hashed value back form the DB - SELECT* to get everything back - pass this in using STRING 
-directrly through query function if errors, may need to pass an empty array to satisfy args but 
-it is set as defined in the function args*/
+// /*now query to get the hashed value back form the DB - SELECT* to get everything back - pass this in using STRING 
+// directrly through query function if errors, may need to pass an empty array to satisfy args but 
+// it is set as defined in the function args*/
 
- $sql = "SELECT * FROM test";
+//  $sql = "SELECT * FROM test";
 
- $query = $testDB->query($sql);
+//  $query = $testDB->query($sql);
 
- echo "PRINTED RESULTS FROM THE DB QUERY: </br>";
+//  echo "PRINTED RESULTS FROM THE DB QUERY: </br>";
 
- $results = ($testDB->results());
+//  $results = ($testDB->results());
 
- foreach ($results as $result) {
+//  foreach ($results as $result) {
  		
- 		foreach ($result as $key => $value) { print_r("</br>[".$key."] = ".$value.";"); }
- }	
+//  		foreach ($result as $key => $value) { print_r("</br>[".$key."] = ".$value.";"); }
+//  }	
 
-echo "</br> Notice the output is the hashed text and NOT the plain text.... </br>";
+// echo "</br> Notice the output is the hashed text and NOT the plain text.... </br>";
 
 
-echo "</br> It is literally impossible to get the inupt plain text from the hashed text from the database</br>
-If you wanted you coul dverify the data by checking the hashvalue of a given string to the stored hashed text</br></br>";
+// echo "</br> It is literally impossible to get the inupt plain text from the hashed text from the database</br>
+// If you wanted you coul dverify the data by checking the hashvalue of a given string to the stored hashed text</br></br>";
 /* UNFINISHED NESTED LOOP FOR CHECKING THE HASH - NOT NEEDED BRING UP IN MEETING FOCUS ON BUIDING SCAN FOR NOW
 // foreach ($results as $result) {
  		
@@ -91,4 +94,5 @@ If you wanted you coul dverify the data by checking the hashvalue of a given str
  		
 //  	}
 //  } */
+
 ?>
