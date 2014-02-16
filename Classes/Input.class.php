@@ -19,10 +19,16 @@ class Input {
 		}
 	}
 
-	public static function get($item) {
-		if (isset($_POST[$item])) {return $_POST[$item];}
-		else if (isset($_GET[$item])) {return $_GET[$item];}
-		else if (isset($_FILES[$item])) {return $_FILES[$item];}
+	public static function get($item, $subItem = null) {
+		if ($subItem == null) {
+			if (isset($_POST[$item])) {return $_POST[$item];}
+			else if (isset($_GET[$item])) {return $_GET[$item];}
+			else if (isset($_FILES[$item])) {return $_FILES[$item];}
+		} else {
+			if (isset($_POST[$item])) {return $_POST[$item][$subItem];}
+			else if (isset($_GET[$item])) {return $_GET[$item][$subItem];}
+			else if (isset($_FILES[$item])) {return $_FILES[$item][$subItem];}
+		}
 		return  '';
 	}
 }

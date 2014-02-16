@@ -110,12 +110,12 @@ echo "</br>//////////////////////* Working with File Uploads *//////////////////
     <input type="submit" value="Submit"/> 
   </div> 
 </form>
-
+<!-- end html -->
 <?php
 
 if (Input::exists('files')) {
 
-	echo "</br>output of the File's info from PHP</br>";
+	echo "</br>output of the File info from PHP</br>";
 
 	print_r(Input::get('test'));
 
@@ -123,7 +123,13 @@ if (Input::exists('files')) {
 
 	var_dump($_FILES);
 
-} else echo "</br>There are no files uploaded yet!</br>"
+	echo "</br> Check the Filestype - make sure it is .php</br>";
+
+	if (Input::get('test','type')) {
+		
+	}
+
+} else echo "</br>There are no files uploaded yet!</br>";
 
 
 
