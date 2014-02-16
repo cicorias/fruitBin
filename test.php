@@ -95,7 +95,7 @@ require_once (__DIR__.'/core/init.php');
 //  	}
 //  } */
 
-echo "</br>//////////////////////* Working with File Uploads *//////////////////////</br>";
+echo "</br>//////////////////////* Working with File Uploads *//////////////////////</br></br>";
 
 ?>
 <!-- start html - list a form for testing file uplaods -->
@@ -108,5 +108,21 @@ echo "</br>//////////////////////* Working with File Uploads *//////////////////
     <input type="submit" value="Submit"/> 
   </div> 
 </form>
+
+<?php
+
+//get name of the uploaded file stored on server (upload_tmp_dir)
+print_r($_FILES['upload']['tmp_name']);
+
+//get name of the uplaoded file as it was on user computer
+print_r($_FILES['upload']['name']);
+
+//get filesize
+print_r($_FILES['upload']['size']);
+
+//get filetype
+print_r($_FILES['upload']['type']);
+
+
 
 ?>
