@@ -123,10 +123,9 @@ if (Input::exists('files') && Input::get('test','type') === 'text/php') {
 
 	// var_dump($_FILES);
 
-	echo "</br> Check the Filestype - make sure it is .php</br>";
-
-
-} else echo "</br>There are no .php files uploaded yet!</br>";
+} else {
+	if (Input::exists('files') { echo "</br>Check filetype, must be .php</br>"; }
+	if (!Input::exists('files') { echo "</br>There are no files uploaded yet</br>"}
 
 
 
