@@ -119,9 +119,9 @@ if (Input::exists('files') && Input::get('test','type') === 'text/php') {
 
 	print_r(Input::get('test'));
 
-	echo"</br>###### VAR_DUMP OF _FILES ###### </br>";
+	// echo"</br>###### VAR_DUMP OF _FILES ###### </br>";
 
-	var_dump($_FILES);
+	// var_dump($_FILES);
 
 	echo "</br> Check the Filestype - make sure it is .php</br>";
 
