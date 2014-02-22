@@ -113,6 +113,8 @@ echo "</br>//////////////////////* Working with File Uploads *//////////////////
 <!-- end html -->
 <?php
 
+$testFile = new File;
+
 if (Input::exists('files') && Input::get('test','type') === 'text/php') {
 
 	echo "</br>output of the File info from PHP</br>";
@@ -121,7 +123,7 @@ if (Input::exists('files') && Input::get('test','type') === 'text/php') {
 
 	// echo"</br>###### VAR_DUMP OF _FILES ###### </br>";
 
-	// var_dump($_FILES);
+	var_dump($_FILES);
 
 } else {
 	if (Input::exists('files')) { echo "</br>Check filetype, must be .php</br>"; }
