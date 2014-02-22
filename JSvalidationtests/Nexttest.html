@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--URL for test http://localhost/Fruitify/JSvalidationtests/Nexttest.html -->
+
+<!--This test checks to see if a file has been uploaded using javascript was an attempt to submit without one made?-->
+<html>
+<head>
+<script>
+function Checkfiles()
+{
+var fup = document.getElementById('filename');
+var fileName = fup.value;
+var ext = fileName.substring(fileName.lastIndexOf('.') + 1);
+if(ext == "php" || ext == "PHP")
+{
+return true;
+} 
+else
+{
+alert("You must upload a PHP file");
+fup.focus();
+return false;
+}
+}
+</script>
+
+<body>
+<form action="#" onsubmit="return Checkfiles();" enctype="multipart/form-data">
+<input type="file" id="filename">
+<input type="submit" value="Go!">
+</form>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!--URL for test http://localhost/Fruitify/JSvalidationtests/test.html -->
+
+<!--This test checks to see if the test box has been filled out or was an attempt to submit while empty made?-->
+<html>
+<head>
+<script>
+function validateForm()
+{
+var x=document.forms["myForm"]["fname"].value;
+if (x==null || x=="")
+  {
+  alert("First name must be filled out");
+  return false;
+  }
+}
+</script>
+</head>
+
+<body>
+<form name="myForm" action="test2.php" onsubmit="return validateForm()" method="post">
+First name: <input type="text" name="fname">
+<input type="submit" value="Submit">
+</form>
+</body>
+</html>
