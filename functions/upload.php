@@ -51,6 +51,6 @@ if (!empty($_FILES["input"])) {
 		upload_max_size = 2M
 		max_file_uploads = 20
 		ALSO - look into adding virus scanning - google ClamAV + PHP ? WHat ar ethe other alternatives?*/
-	} else { echo "<p>Unable to save file. The file must be of following type(s): ".$allowedexts."</p>"; die; }
+	} else { echo "<p>Unable to save file. The file must be of following type(s): "; print_r($allowedexts); echo "</p>"; die; }
 }
 ?>
