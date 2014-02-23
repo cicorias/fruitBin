@@ -2,7 +2,6 @@
 /*
 TEST PAGE for LEARNING AND CODING
  */
-//Gabe made a change
 
 // added to ensure all required configs and OOP Classes get loaded for use
 require_once (__DIR__.'/core/init.php');
@@ -101,10 +100,10 @@ echo "</br>//////////////////////* Working with File Uploads *//////////////////
 
 ?>
 <!-- start html - list a form for testing file uplaods -->
-<form action="" method="post" 
+<form action="/functions/upload.php" method="post" 
     enctype="multipart/form-data"> 
   <div><label id="upload">Select file to upload: 
-    <input type="file" id="upload" name="test"/></label></div> 
+    <input type="file" id="upload" name="input"/></label></div> 
   <div> 
     <input type="hidden" name="action" value="upload"/> 
     <input type="submit" value="Submit"/> 
@@ -113,22 +112,6 @@ echo "</br>//////////////////////* Working with File Uploads *//////////////////
 <!-- end html -->
 <?php
 
-$testFile = new File;
-
-if (Input::exists('files') && Input::get('test','type') === 'text/php') {
-
-	echo "</br>output of the File info from PHP</br>";
-
-	print_r(Input::get('test'));
-
-	// echo"</br>###### VAR_DUMP OF _FILES ###### </br>";
-
-	var_dump($_FILES);
-
-} else {
-	if (Input::exists('files')) { echo "</br>Check filetype, must be .php</br>"; }
-	if (!Input::exists('files')) { echo "</br>There are no files uploaded yet</br>"; }
-}
 
 
 
