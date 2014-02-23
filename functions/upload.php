@@ -3,7 +3,7 @@
 //set DIR for file storage
 $upload_dir = "../UploadedFiles/";
 
-if (!is_dir($upload_dir)) { mkdir($upload_dir); chmod($upload_path,0644);}
+if (!is_dir($upload_dir)) { mkdir($upload_dir); chmod($upload_dir,0644);}
 
 //array to set allowed file types
 
