@@ -45,11 +45,12 @@ if (!empty($_FILES["input"])) {
     	if (!$moveFile) { echo "<p>Unable to save file.</p>"; die; }
     	// set proper permissions on the new file
     	chmod($upload_path, 0644);
+    	echo "<p>".$name." has been uploaded to: ".$upload_path."</br>";
     	/*NOTE - may need to tweak php.ini settings for file uplaods still ie:
     	post_max_size = 8M
 		upload_max_size = 2M
 		max_file_uploads = 20
 		ALSO - look into adding virus scanning - google ClamAV + PHP ? WHat ar ethe other alternatives?*/
-	}
+	} else { echo "<p>Unable to save file. The file must be of following type(s): ".$allowedexts."</p>"; die; }
 }
 ?>
