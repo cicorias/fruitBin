@@ -9,6 +9,18 @@
 <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>
 </head>
 <body>
+
+<div class="container">
+	<form action="/functions/upload.php" method="post" 
+	    enctype="multipart/form-data"> 
+	  <div><label id="upload">Select file to upload: 
+	    <input type="file" id="upload" name="input"/></label></div> 
+	  <div> 
+	    <input type="hidden" name="action" value="upload"/> 
+	    <input type="submit" value="Submit"/> 
+	  </div> 
+	</form>
+</div>
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script src="bootstrap/scripts/bootstrap.js"></script>
 <script src="bootstrap/scripts/bootstrap.min.js"></script>
