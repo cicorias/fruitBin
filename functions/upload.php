@@ -1,7 +1,6 @@
 <?PHP
 
-//set DIR for file storage
-$upload_dir = "../UploadedFiles/";
+require_once ('../core/init.php');
 
 if (!is_dir($upload_dir)) { mkdir($upload_dir, 0755);}
 // - if creating the dir fails and dir is not there - we need to handle that error
@@ -57,5 +56,7 @@ if (!empty($_FILES["input"])) {
 		foreach ($allowedexts as $allowedext) { print_r($allowedext); } 
 		echo "</p>"; die; 
 	}
+
+
 }
 ?>
