@@ -1,9 +1,9 @@
 <?PHP
 
-//set DIR for file storage
-$upload_dir = "../UploadedFiles/";
+require_once ('../core/init.php');
 
 if (!is_dir($upload_dir)) { mkdir($upload_dir, 0755);}
+// - if creating the dir fails and dir is not there - we need to handle that error
 
 //array to set allowed file types
 
@@ -50,7 +50,11 @@ if (!empty($_FILES["input"])) {
     	post_max_size = 8M
 		upload_max_size = 2M
 		max_file_uploads = 20
-		ALSO - look into adding virus scanning - google ClamAV + PHP ? WHat ar ethe other alternatives?*/
-	} else { echo "<p>Unable to save file. The file must be of following type(s): "; print_r($allowedexts); echo "</p>"; die; }
+		ALSO - look into adding virus scanning - google ClamAV + PHP ? What ar ethe other alternatives?*/
+	} else { 
+		echo "<p>Unable to save file. The file must be of following type(s): ";
+		foreach ($allowedexts as $allowedext) { print_r($allowedext); } 
+		echo "</p>"; die; 
+	}
 }
 ?>
