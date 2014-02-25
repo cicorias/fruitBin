@@ -56,7 +56,5 @@ if (!empty($_FILES["input"])) {
 		foreach ($allowedexts as $allowedext) { print_r($allowedext); } 
 		echo "</p>"; die; 
 	}
-
-
 }
 ?>
