@@ -8,8 +8,7 @@ if (!is_dir($upload_dir)) { mkdir($upload_dir, 0755);}
 $files = new DirectoryIterator($upload_dir);
 foreach ($files as $file) {
     if (!$file->isDot()) {
-        //print_r($file->getFilename());
-        
+        print_r($file->getFilename());
     }
     
 }
