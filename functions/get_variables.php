@@ -1,4 +1,6 @@
-<?
+<?php
+//please add comments >:O
+
 	$file = $argv[1];
 	$total_variables = array();
 
