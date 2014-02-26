@@ -12,8 +12,71 @@ require_once (__DIR__.'/core/init.php');
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
 <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css"/>
 <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>
+
+<!-- Custom styles for cover template with single page-->
+    <link href="cover.css" rel="stylesheet">
 </head>
 <body>
+
+
+
+
+
+	 <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand">Cover</h3>
+              <ul class="nav masthead-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="inner cover">
+            <h1 class="cover-heading">Cover your page.</h1>
+            <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+            <p class="lead">
+              <a href="#" class="btn btn-lg btn-default">Learn more</a>
+            </p>
+          </div>
+
+          <div class="mastfoot">
+            <div class="inner">
+              <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+
+
+
+
+
+    
+
+<div class="container">
+	<textarea rows="20" cols="125" name="phpcode" form="textform">
+	Enter code here...</textarea>
+	<form name="textform" action="/functions/upload.php" id="textform" onsubmit="return validateForm()" method="post">
+  		<input type="submit" value="Submit Code">
+	</form>
+	<br>
+</div>
+
 
 <div class="container">
 	<form action="/functions/upload.php" method="post" 
@@ -22,7 +85,7 @@ require_once (__DIR__.'/core/init.php');
 	    <input type="file" id="upload" name="input"/></label></div> 
 	  <div> 
 	    <input type="hidden" name="action" value="upload"/> 
-	    <input type="submit" value="Submit"/> 
+	    <input type="submit" value="Submit File"/> 
 	  </div> 
 	</form>
 </div>
