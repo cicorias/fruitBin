@@ -5,6 +5,11 @@
 <html>
 <head>
 <script>
+
+window.onload = function() {
+    document.getElementById('fname').onchange = validateForm;
+};
+
 function validateForm()
 {
 var x=document.forms["myForm"]["fname"].value;
@@ -18,8 +23,8 @@ if (x==null || x=="")
 </head>
 
 <body>
-<form name="myForm" action="test2.php" onsubmit="return validateForm()" method="post">
-First name: <input type="textarea" name="fname">
+<form name="myForm" action="test2.php" method="post">
+First name: <input type="text" name="fname">
 <input type="submit" value="Submit">
 </form>
 </body>

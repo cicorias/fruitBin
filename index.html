@@ -14,16 +14,16 @@ require_once (__DIR__.'/core/init.php');
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>
 
 <!-- Custom styles for this template -->
-    <link href="bootstrap/css/stylesheet.css" rel="stylesheet" type="text/css">
+  <link href="bootstrap/css/stylesheet.css" rel="stylesheet" type="text/css">
 
-    <script>
+  <script>
 		function validateForm(){
 			var x=document.forms["textform"]["phpcode"].value;
 			if (x==null || x==""){
-  				alert("Please copy and paste your code to be Fruitified");
-  				return false;
-  			}
-	}
+  			alert("Please copy and paste your code to be Fruitified");
+  			return false;
+  		}
+	 }
 	</script>
 
 </head>
@@ -91,7 +91,7 @@ require_once (__DIR__.'/core/init.php');
   <div class="col-md-4">.col-md-4</div>
   <div class="col-md-8">.col-md-8 
   	<div class="container">
-	<form action="/functions/upload.php" method="post" 
+	<form action="../functions/upload.php" method="post" 
 	    enctype="multipart/form-data"> 
 	  <div><label id="upload">Select file to upload: 
 	    <input type="file" id="upload" name="input" /></label></div> 
@@ -114,7 +114,6 @@ require_once (__DIR__.'/core/init.php');
 
 
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-<script src="bootstrap/scripts/bootstrap.js"></script>
 <script src="bootstrap/scripts/bootstrap.min.js"></script>
 </body>
 </html>
