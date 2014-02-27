@@ -2,7 +2,7 @@
 
 /*Fruit Basket - object that will function as container for holding the fruits && exchange of fruits*/
 
-class fruitBasket {
+class FruitBasket {
 
 	private $_input_File_Path,//@_inputFile_Path: path to input file on server
 			$_output_File_Path,//@_output_File_path: path to output file if needed - we may allow direct downlaod when complete
