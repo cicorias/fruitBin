@@ -45,3 +45,6 @@ app/[Cc]onfig/database.php
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Testing Pages #
+shanetest.php
