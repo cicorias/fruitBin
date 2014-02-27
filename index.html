@@ -30,9 +30,6 @@ require_once (__DIR__.'/core/init.php');
 
 <body>
 
-
-
-
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -91,10 +88,10 @@ require_once (__DIR__.'/core/init.php');
   <div class="col-md-4">.col-md-4</div>
   <div class="col-md-8">.col-md-8 
   	<div class="container">
-	<form action="../functions/upload.php" method="post" 
+	<form action="functions/getfile.php" method="post" 
 	    enctype="multipart/form-data"> 
 	  <div><label id="upload">Select file to upload: 
-	    <input type="file" id="upload" name="input" /></label></div> 
+	    <input type="file" id="upload" name="file" /></label></div> 
 	  	<div> 
 	    <input type="hidden" name="action" value="upload"/> 
 	    <input type="submit" value="Submit File"/> 
