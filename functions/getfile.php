@@ -18,7 +18,7 @@ if (Input::exists()) {
         if  (!Input::get('file','error') == UPLOAD_ERR_OK) { echo "Error: " . Input::get('file','error') . "<br>"; }
         
         //check name length & size
-        if(mb_strlen(Input::get('file'),"UTF-8") > 225) { echo "<p>Filename must be under 250 chars in length</p>"; die; }
+        if(mb_strlen(Input::get('file','name'),"UTF-8") > 225) { echo "<p>Filename must be under 250 chars in length</p>"; die; }
         
         //check that name is valid chars - if not attempt to fix - google tenerary logical operators for syntax help :)
         ((preg_match("`^[-0-9A-Z_\.]+$`i", Input::get('file','name'))) ? $filename = Input::get('file','name') : $filename = preg_replace("/[^A-Z0-9._-]/i", "_", Input::get('file','name')));
