@@ -1,5 +1,6 @@
-<?php
-
+<?
+##NOTES (shane)
+#how will we handle objects and the keyword "$this"?
 class ParseVariables {
 	private $file;
 
@@ -119,4 +120,5 @@ class ParseVariables {
 		}
 	}
 }
+
 ?>
