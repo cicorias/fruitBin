@@ -48,3 +48,6 @@ Thumbs.db
 
 # Testing Pages #
 shanetest.php
+
+#UPLOADS DIR#
+/UploadedFiles/

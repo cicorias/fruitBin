@@ -76,9 +76,9 @@ require_once (__DIR__.'/core/init.php');
         <div class="col-md-4">.col-md-4</div>
          <div class="col-md-8">.col-md-8
          <div class="container">
-          <textarea rows="10"  name="phpcode" form="textform" placeholder="Enter code here" class="form-control"></textarea>
+          <textarea rows="10"  name="textbox" form="textform" placeholder="Enter code here" class="form-control"></textarea>
           <!--When user clicks submit, program calls the validateForm method-->
-          <form name="textform" action="#" id="textform" onsubmit="return validateForm()" method="post">
+          <form name="textform" action="functions/getfile.php" id="textform" onsubmit="return validateForm()" method="post">
             <button class="btn btn-default btn-lg " type="submit"> Submit Code<span class="glyphicon glyphicon-thumbs-up"></span></button>
             <!--<input type="submit" value="Submit Code" class="btn btn-default btn-lg"/>-->
           </form>
