@@ -1,6 +1,6 @@
 <?php
 /*
-HASH CLASS - used fr creating salts and hashing input strings for use in the Database
+HASH CLASS - used for creating salts and hashing input strings for use in the Database
  */
 class Hash {
 
