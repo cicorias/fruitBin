@@ -1,4 +1,5 @@
-<?
+<?php
+
 class ParseVariables {
 	private $file;
 
@@ -118,5 +119,4 @@ class ParseVariables {
 		}
 	}
 }
-
 ?>
