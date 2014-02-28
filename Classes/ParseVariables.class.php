@@ -114,11 +114,12 @@ class ParseVariables {
 				}
 			}
 		}
+		
 		$unique = array_unique($total_variables);
 		foreach ($unique as &$var) {
 			print "$var\n";
 		}
 	}
 }
-
+//check steps to see time complexity / size of using str_pslit vs split - combine whole thing into seperate function?
 ?>
