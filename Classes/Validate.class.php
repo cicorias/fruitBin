@@ -24,7 +24,7 @@ class Validate {
 
             $name ='fruitify.php';
 
-            $this->_content = $input; 
+            $this->_content = $input;  
         }
         
         //check name length & size
