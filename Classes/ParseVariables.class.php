@@ -37,11 +37,11 @@ class ParseVariables {
 				//Determining how many alphanumeric variables are around
 				$num_vars_found = preg_match_all('/\$[a-zA-Z_][a-zA-Z0-9_]/', $line);
 
-				if($num_vars_found < 1) {
-					continue;
-				} else {
+				if($num_vars_found >= 1) {
 					//Removing beginning characters up to $
-					$line = preg_replace('/^.+?\$/', '\$', $line);
+					if(!preg_match('/^\$/', $line)) {
+						$line = preg_replace('/^.+?\$/', '\$', $line);
+					}
 					//Substituting 1+ spaces for a single comma
 					$line = preg_replace('/\s+/', ',', $line);
 					//Substituting 2+ commas for single comma
@@ -51,12 +51,11 @@ class ParseVariables {
 
 					//Array created to split sections by comma
 					$line_array = split(",", $line);
-				
-					//Need to refactor the following code as there
-					//is a duplication. See below!	
-					if(count($line_array) == 1) {
+
+					foreach ($line_array as &$section) {
 						$variable = null;
-						$char_array = str_split($line);
+						$char_array = str_split($section);
+						$section_length = strlen($section);
 						$dollar_found = 0;
 						foreach ($char_array as &$char) {
 							if(preg_match('/[\$a-zA-Z0-9_]/', $char)) {
@@ -68,13 +67,33 @@ class ParseVariables {
 								} else {
 									if($dollar_found == 1) {
 										$variable .= $char;
+										if(strlen($variable) == $section_length) {
+											if($variable == '$this') {
+												continue;
+											} else if(preg_match('/\$\d/', $variable)) {
+												continue;
+											} else {	
+												array_push($total_variables, $variable);
+												$dollar_found = 0;
+												$variable = null;
+											}
+										}
 									}
 								}
 							} else {
 								if(isset($variable)) {
 									if($dollar_found == 1) {
 										if($variable != '$') {
-											array_push($total_variables, $variable);
+											$dollar_count = preg_match_all('/\$/', $variable);
+											if($dollar_count == 1) {
+												if($variable == '$this') {
+
+												} else if(preg_match('/\$\d/', $variable)) {
+													continue;
+												} else {
+													array_push($total_variables, $variable);
+												}
+											}
 										}
 										$dollar_found = 0;
 										$variable = null;
@@ -82,42 +101,12 @@ class ParseVariables {
 								}
 							}
 						}
-					} else {
-						$variable = null;
-						$char_array = str_split($line);
-						$dollar_found = 0;
-						foreach ($char_array as &$char) {
-							if(preg_match('/[\$a-zA-Z0-9_]/', $char)) {
-								if(!isset($variable)) {
-									if(preg_match('/\$/', $char)) {
-										$dollar_found = 1;
-										$variable = $char;
-									}
-								} else {
-									if($dollar_found == 1) {
-										$variable .= $char;
-									}
-								}
-							} else {
-								if(isset($variable)) {
-									if($dollar_found == 1) {
-										if($variable != '$') {
-											array_push($total_variables, $variable);
-										}
-										$dollar_found = 0;
-										$variable = null;
-									}
-								}
-							}
-						}
-					}
+					} 
 				}
 			}
 		}
 		$unique = array_unique($total_variables);
-		foreach ($unique as &$var) {
-			print "$var\n";
-		}
+		return $unique;
 	}
 }
 
