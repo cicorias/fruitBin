@@ -1,9 +1,7 @@
 <?php
 
 function parse_from_string($content, $sort = false) {
-	$variables = array();
-	$classes = array();
-	$functions = array();
+	$variables = $classes = $functions = array();
 
 	$keywords = parse($content);
 
