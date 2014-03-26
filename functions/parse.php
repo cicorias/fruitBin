@@ -1,4 +1,8 @@
 <?php
+$array = array('getfile.php');
+$result = parse_from_files($array);
+
+var_dump($result);
 
 function parse_from_string($content, $sort = false) {
 	$variables = $classes = $functions = array();
@@ -45,6 +49,7 @@ function parse_from_files($files, $sort = false) {
 function parse($contents) {
 	$tokens = token_get_all($contents);
 	$classes = $functions = $variables = array();
+	$class = $function = false;
 	foreach ($tokens as $token) {
 		switch($token[0]) {
 			case T_CLASS:
