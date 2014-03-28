@@ -19,7 +19,7 @@ define('HOSTED', 'LOCAL');
 define('DB_TYPE', 'mysql');
 
 if (HOSTED == LOCAL) {
-    define('DB_HOST', '127.0.0.1');
+    define('DB_HOST', '');
     define('DB_NAME', '');
     define('DB_USER', '');
     define('DB_PASS', '');
@@ -35,7 +35,7 @@ define('TMP_DIR', '../../TmpFiles/');
 $upload_dir = TMP_DIR;
 
 //autoload every OOP Class in directory
-spl_autoload_register(function ($class) {require_once '../Classes/'.$class.'.class.php';} );
+spl_autoload_register(function ($class) {require_once '../lib/Classes/'.$class.'.class.php';} );
 
 if (!isset($_SESSION)) {
     session_start();
