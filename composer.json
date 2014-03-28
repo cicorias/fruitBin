@@ -1,0 +1,32 @@
+{
+    "name": "Fruitify/fruitbin",
+    "type": "project",
+    "description": "Basic Code Obfuscation",
+    "keywords": ["obfuscation", "php", "application", "pace"],
+    "homepage": "http://fruitify.io",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "shanedroid",
+            "homepage": "http://www.shanekirk.me",
+            "role": "Developer"
+        },
+        {
+            "name": "siriusgabe",
+            "homepage": "https://github.com/siriusgabe",
+            "role": "Developer"
+        },
+        {
+            "name": "Nsemple87",
+            "homepage": "https://github.com/Nsemple87",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/Fruitify/fruitBin/issues",
+        "source": "https://github.com/Fruitify/fruitBin"
+    },
+    "require": {
+        "php": ">=5.4.0"
+    }
+}
